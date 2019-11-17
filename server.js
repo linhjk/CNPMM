@@ -1,19 +1,24 @@
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
-var mongoose = require('mongoose');
-var User = require('./app/models/user');
-var Auth = require('./app/routes/auth');
-var port = process.env.PORT || 3000;
+var db = require('./app/configs/db');
+
+var Auth = require('./app/routes/auth.route');
+var Login = require('./app/routes/login.route');
+var News = require('./app/routes/news.route');
+var Category = require('./app/routes/category.route');
+
+
+var port = process.env.PORT || 5000;
 var jwt = require('jsonwebtoken');
 
 var superSecret = 'learnnodejs';
-// var apiRouter = express.Router();
 
+var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 
 app.use(function(req,res,next){
     res.setHeader('Access-Control-Allow-Origin','*');
@@ -24,11 +29,9 @@ app.use(function(req,res,next){
 
 app.use(morgan('dev'));
 app.use('/auth',Auth);
-
-mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/Prac6',{ useNewUrlParser: true});
-mongoose.set('userCreateIndex',true);
-
+app.use('/',Login);
+app.use('/',News);
+app.use('/',Category);
 
 app.use(function(req,res,next){
     var token = req.body.token || req.query.token || req.headers['x-access-token'];

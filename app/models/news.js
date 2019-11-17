@@ -1,12 +1,15 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
+var { CommentSchema, Comments } = require('./comment');
+
 
 var NewsSchema = new Schema({
-    title: {type:String ,required:true},
-    content: {type:String, required:true, default:null},
-    image: {type:String,required:false,default:null},
-    
+    content: String,
+    title: {type:String ,required:true, index:{unique:true}},
+    active: Boolean,
+    image: String,
+    datesubmit: Date,
+    comments: [CommentSchema]
 });
-
-module.exports = mongoose.model('News', UserSchema);
+const News = mongoose.model('News', NewsSchema,'news')
+module.exports = News;

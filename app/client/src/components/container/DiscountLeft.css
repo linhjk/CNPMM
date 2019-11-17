@@ -1,0 +1,15 @@
+.mainDiscount{
+    width: 300px;
+    padding-top: 30px;
+}
+.img-products{
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+.content-products{
+    flex-direction: row;
+}
+.text{
+    width: 150px;
+}

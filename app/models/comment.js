@@ -1,10 +1,16 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
 
-var NewsSchema = new Schema({
-    content: {type:String, required:true, default:null},
-    image: {type:String,required:false,default:null}
+var CommentSchema = new Schema({
+    comment: {type:String, required:true, default:null},
+    active: Boolean,
+    user: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: 'User',
+    }
 });
 
-module.exports = mongoose.model('comments', UserSchema);
+const comments = mongoose.model('Comments', CommentSchema,'comments');
+
+module.exports.Comments = comments;
+module.exports.CommentSchema = CommentSchema;

@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
 
-var NewsSchema = new Schema({
-    name: {type:String, required:true, default:null},
+var CategorySchema = new Schema({
+    category_name: {type:String, required:true, default:null},
+    active: Boolean ,
+    news_id: Array
 });
 
-module.exports = mongoose.model('categories', UserSchema);
+module.exports = mongoose.model('Categories', CategorySchema,'categories');

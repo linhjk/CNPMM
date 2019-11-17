@@ -1,0 +1,20 @@
+.signup-container{
+    background-color: rgb(221, 236, 241);
+    margin: auto;
+    margin-top: 30px;
+    height: 500px;
+    width: 550px;
+}
+
+.signup-input{
+    margin: 0px 50px 50px 0px;
+    padding: 25px 50px 75px 90px;
+}
+
+.btn-submit{
+    float: right;
+    padding: 5px 0px 30px 100px;
+}
+.btn-fb-gm{
+    margin: 0px 50px 50px 125px;
+}
