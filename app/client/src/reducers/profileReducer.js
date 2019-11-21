@@ -5,10 +5,10 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    console.log("kkkkkkkk", action);
+    console.log("action in profileReducer", action);
     switch (action.type) {
         case GET_PROFILE:
-                console.log("aaaa");
+                console.log("in case GET_PROFILES");
             return {
                 ...state,
                 profiles: action.payload

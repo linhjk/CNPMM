@@ -5,10 +5,10 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-    console.log("ajksfhkj", action);
+    console.log("action in newReducer", action);
     switch (action.type) {
         case GET_NEWS:
-                console.log("bbb");
+                console.log("in case GET_NEWS");
             return {
                 ...state,
                 newsitems: action.payload

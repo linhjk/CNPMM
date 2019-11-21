@@ -2,7 +2,7 @@ import axios from 'axios';
 import { GET_NEWS } from './types';
 
 export const getNews = () => dispatch => {
-    console.log("bbbbbbbbb")
+    console.log("in action getNews")
     axios
         .get('http://localhost:5000/news')
         .then(res =>

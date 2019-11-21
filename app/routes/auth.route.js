@@ -59,15 +59,17 @@ app.post('/authenticate', function (req, res) {
         if (!user) {
             res.json({
                 success: false,
-                message: 'Authenticate failed. User not found.'
+                message: 'Đăng nhập thất bại. Không tìm thấy tài khoản này!'
             });
         } else if (user) {
+
+            //res.json({success:true});
 
             var validPassword = user.comparePassword(req.body.password);
             if (!validPassword) {
                 res.json({
                     success: false,
-                    message: 'Authenticate failed. Wrong password.'
+                    message: 'Đăng nhập thất bại. Sai mật khẩu !'
                 });
             } else {
 
@@ -80,7 +82,7 @@ app.post('/authenticate', function (req, res) {
 
                 res.json({
                     success: true,
-                    message: 'User da cap nhap token!',
+                    message: 'Đăng nhập thành công!',
                     token: token
                 });
             }
