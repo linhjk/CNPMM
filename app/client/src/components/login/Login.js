@@ -29,7 +29,7 @@ export default class Login extends React.Component {
   componentDidMount(){
       const token=localStorage.getItem('currentToken');
       {if (token){
-        const { from } = this.props.location.state || { from: { pathname: "/news" } };
+        const { from } = this.props.location.state || { from: { pathname: "/managenew" } };
               this.props.history.push(from);}
         // <Redirect to='/news' />
         // :
@@ -56,7 +56,7 @@ export default class Login extends React.Component {
             message.info(res.data.message)
             localStorage.setItem('currentToken',res.data.token)
             if(res.data.success==true){         
-              const { from } = this.props.location.state || { from: { pathname: "/news" } };
+              const { from } = this.props.location.state || { from: { pathname: "/managenew" } };
               this.props.history.push(from);
             }
           }

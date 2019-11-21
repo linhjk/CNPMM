@@ -8,7 +8,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => (
     const currentUser = localStorage.getItem("currentToken");
     if (!currentUser) {
       // not logged in so redirect to login page with the return url
-      return <Redirect to= '/' />
+      return <Redirect to= '/login' />
     }
 
     // authorised so return component

@@ -32,23 +32,23 @@ class App extends Component {
     return (
       <Router history={history}>
         {currentUser?
-        <Layout style={{ minHeight: '100vh' }}>
-          <Navbar/>
+        
         <Layout className="layout">
           <Navbar />
           <Route path="/" exact component={View} />
-          <div className="container">
+          
             <Route exact path="/login" component={Login} />
-          </div>
+            <PrivateRoute exact path="/managenew" component={ManageNews} />
+            
+          
         </Layout>
-        </Layout>
+       
         :
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                <Route path="/xahoi" exact component={View} />
-                <Route path="/thethao" exact component={View} />
-                <Route path="/congnghe" exact component={View} />
-                <Route path="/news" component={View} />
-                <Route path="/" exact component={Login} />
+          <Navbar />
+          <PrivateRoute exact path="/managenew" component={ManageNews} />
+                <Route path="/login" component={Login} />
+                <Route path="/" exact component={View} />
               </div>
         }
       </Router>

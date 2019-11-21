@@ -39,6 +39,9 @@ class Navbar extends Component {
     };
     render() {
         const { itemsbycategory } = this.props;
+        
+        const token=localStorage.getItem('currentToken');
+        console.log(token);
         return (
             <Header>
                 <Link to="/">
@@ -53,29 +56,42 @@ class Navbar extends Component {
                 >
                     <Menu.Item key="Xã hội">
                         {/* <Link to="/xahoi"> */}
-                            Xã hội
+                        Xã hội
                         {/* </Link> */}
                     </Menu.Item>
                     <Menu.Item key="Thể thao">
                         {/* <Link to="/thethao"> */}
-                            Thể thao
+                        Thể thao
                         {/* </Link> */}
                     </Menu.Item>
                     <Menu.Item key="Công nghệ">
                         {/* <Link to="/congnghe"> */}
-                            Công nghệ
+                        Công nghệ
                         {/* </Link> */}
                     </Menu.Item>
-                    <div className="btn-login-resgister">
+                    {token ?
+                        <div className="btn-login-resgister">
                         <Button type="primary">
                             <Link to="/login">
-                                Đăng nhập
-                            </Link>
+                                Chỉnh sửa bài
+                        </Link>
                         </Button> {' '}
-                        <Button type="danger">
-                            Đăng Ký
-                        </Button>
                     </div>
+                        :
+                        <div className="btn-login-resgister">
+                            <Button type="primary">
+                                <Link to="/login">
+                                    Đăng nhập
+                            </Link>
+                            </Button> {' '}
+                            <Button type="danger">
+                                Đăng Ký
+                            </Button>
+                        </div>
+
+
+                    }
+
                 </Menu>
             </Header>
         )
