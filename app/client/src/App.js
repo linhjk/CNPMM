@@ -17,7 +17,11 @@ import Login from './components/login/Login';
 import AppNews from './components/manageNews/ManageNews'
 import BestSeller from './components/container/BestSeller';
 import Navbar from './components/layout/Navbar'
+
 import ManageNews from './components/manageNews/ManageNews';
+
+import News from './components/newsitem/news'
+
 
 const { Header, Content, Footer } = Layout;
 const history = createBrowserHistory();
@@ -26,23 +30,17 @@ class App extends Component {
   render() {
     const currentUser = localStorage.getItem("currentToken");
     return (
-
       <Router history={history}>
         {currentUser?
         <Layout style={{ minHeight: '100vh' }}>
           <Navbar/>
-          <Layout>
-            <Content style={{ margin: '0 16px' }}>
-              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              <Route path="/managenew" exact component={ManageNews} />
-                <Route path="/xahoi" exact component={View} />
-                <Route path="/thethao" exact component={View} />
-                <Route path="/congnghe" exact component={View} />
-                <Route path="/news" component={View} />
-                <Route path="/" exact component={Login} />
-              </div>
-            </Content>
-          </Layout>
+        <Layout className="layout">
+          <Navbar />
+          <Route path="/" exact component={View} />
+          <div className="container">
+            <Route exact path="/login" component={Login} />
+          </div>
+        </Layout>
         </Layout>
         :
         <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
@@ -55,16 +53,7 @@ class App extends Component {
         }
       </Router>
 
-      // <Router>
-      //   <Layout className="layout">
-      //     <Navbar />
-      //     <Route path="/" exact component={Login} />
-      //     <div className="container">
-      //       <Route exact path="/news" component={View} />
-      //     </div>
-      //   </Layout>
-      //   {/* <BestSeller/> */}
-      // </Router>
+   
     );
   }
 }

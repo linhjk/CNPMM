@@ -52,19 +52,19 @@ class Navbar extends Component {
                     style={{ lineHeight: '64px' }}
                 >
                     <Menu.Item key="Xã hội">
-                        <Link to="/xahoi">
+                        {/* <Link to="/xahoi"> */}
                             Xã hội
-                        </Link>
+                        {/* </Link> */}
                     </Menu.Item>
                     <Menu.Item key="Thể thao">
-                        <Link to="/thethao">
+                        {/* <Link to="/thethao"> */}
                             Thể thao
-                        </Link>
+                        {/* </Link> */}
                     </Menu.Item>
                     <Menu.Item key="Công nghệ">
-                        <Link to="/congnghe">
+                        {/* <Link to="/congnghe"> */}
                             Công nghệ
-                        </Link>
+                        {/* </Link> */}
                     </Menu.Item>
                     <div className="btn-login-resgister">
                         <Button type="primary">

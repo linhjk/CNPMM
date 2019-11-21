@@ -4,6 +4,7 @@ import { GET_NEWS, GET_NEWSBYCATEGORY, GET_NEWBYID } from '../actions/types';
 const initialState = {
     newsitems: [],
     itemsbycategory: [],
+    newbyid:[],
 };
 
 export default function (state = initialState, action) {

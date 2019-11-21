@@ -20,7 +20,7 @@ class Viewmain extends Component {
         const views = this.props.viewnews.map(view => (
             <Col span={12}>
                 <div className="card-item" style={{ background: '#ECECEC', padding: '30px' }}>
-                    <Link to={`/${view._id}`}>
+                    <Link to={`/news/${view._id}`}>
                     <Card
                         hoverable
                         title={view.title}

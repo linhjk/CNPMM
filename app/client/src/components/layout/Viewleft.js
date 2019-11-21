@@ -13,7 +13,7 @@ class ViewLeft extends Component {
                 hoverable
                 style={{ width: 370 }}
             >
-                <img className="pic-news" src={img} />
+                <img className="pic-news" src={item.image} />
                 <div className="content-news">
                     <div>
                         <h5>{item.title}</h5>
