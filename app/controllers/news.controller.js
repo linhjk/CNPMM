@@ -19,7 +19,7 @@ module.exports.addNews = function (req, res) {
     news.image = req.body.image;
     news.datesubmit = req.body.datesubmit;
 
-    news.save(function (err) {
+    news.save(function (err,newitem) {
         if (err) {
             if (err.code == 11000)
                 return res.json({ success: false, message: 'A user with that username already exists.' });
@@ -27,7 +27,7 @@ module.exports.addNews = function (req, res) {
                 return res.send(err);
         }
         else {
-            res.json({ message: 'Created' });
+            res.json({ message: 'Created',id:newitem.id });
         }
     });
 }
