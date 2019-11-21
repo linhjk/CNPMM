@@ -3,26 +3,31 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from "lodash";
 
-import { Layout, Menu, Breadcrumb, Button, Row, Col, Card } from 'antd';
+import { Layout, Breadcrumb, Row, Col } from 'antd';
 import './View.css';
 import 'antd/dist/antd.css';
-import img from '../img/pic1.jpg';
-
 
 import Viewmain from './Viewmain';
 import Viewleft from './Viewleft';
-import Navbar from './Navbar';
+
 import * as  newsActions from '../../actions/newsAction';
 
-
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 class View extends Component {
-  componentDidMount(){
+  constructor(props) {
+    super(props);
+    this.state = {
+      category_name: "Xã hội",
+    };
+  }
+  componentDidMount() {
     this.props.actions.getNews();
+    this.props.actions.getNewsByCategory(this.state);
   }
   render() {
-    const {newsitems} = this.props;
+    const { newsitems, itemsbycategory } = this.props;
+    console.log(itemsbycategory);
     return (
       <div>
         <Content style={{ padding: '0 50px' }}>
@@ -32,10 +37,10 @@ class View extends Component {
             <div>
               <Row>
                 <Col span={16} push={8}>
-                  <Viewmain viewnews={newsitems}/>
+                  <Viewmain viewnews={newsitems} />
                 </Col>
                 <Col span={8} pull={16}>
-                  <Viewleft />
+                  <Viewleft items={itemsbycategory} />
                 </Col>
               </Row>
             </div>
@@ -47,17 +52,19 @@ class View extends Component {
   }
 }
 
-const mapDispatchToProps = dispath =>{
+const mapDispatchToProps = dispath => {
   return {
-      actions: bindActionCreators({
-          getNews: newsActions.getNews
-      }, 
-  dispath)
+    actions: bindActionCreators({
+      getNews: newsActions.getNews,
+      getNewsByCategory: newsActions.getNewsByCategory
+    },
+      dispath)
   }
 }
 
 const mapStateToProps = state => ({
-  newsitems: _.get(state,["newsReducer","newsitems"])
+  newsitems: _.get(state, ["newsReducer", "newsitems"]),
+  itemsbycategory: _.get(state, ["newsReducer", "itemsbycategory"])
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(View);

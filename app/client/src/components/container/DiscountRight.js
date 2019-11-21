@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './DiscountRight.css';
 import {
     Container, Row, Col, Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle
 } from 'reactstrap';
 import img from '../img/pic1.jpg';
 

@@ -32,5 +32,6 @@ router.use(function(req,res,next){
 router.get('/news', controller.getNews);
 router.post('/news',controller.addNews);
 router.post('/findnew',controller.getNewsFromCategory);
+router.get('/:new_id',controller.getNewsByID);
 
 module.exports = router;

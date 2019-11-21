@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch,Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Layout, Menu, Breadcrumb, Button, Row, Col, Card } from 'antd';
 import { createBrowserHistory } from 'history';
-import {PrivateRoute} from './route/PrivateRoute';
+import { PrivateRoute } from './route/PrivateRoute';
+
 
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -21,24 +22,27 @@ const history = createBrowserHistory();
 
 class App extends Component {
   render() {
-    const currentUser=localStorage.getItem("currentToken");
+    const currentUser = localStorage.getItem("currentToken");
     return (
-      
+
       <Router history={history}>
-          <Layout style={{ minHeight: '100vh' }}>
-            <Layout>
-              <Content style={{ margin: '0 16px' }}>
-                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                <PrivateRoute path="/news" component={View}/>
+        <Layout style={{ minHeight: '100vh' }}>
+          <Layout>
+            <Content style={{ margin: '0 16px' }}>
+              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                <Route path="/xahoi" exact component={View} />
+                <Route path="/thethao" exact component={View} />
+                <Route path="/congnghe" exact component={View} />
+                <Route path="/news" component={View} />
                 <Route path="/" exact component={Login} />
-                
-                </div>
-              </Content>
-            </Layout>
+              </div>
+            </Content>
           </Layout>
-          
+        </Layout>
+
+
       </Router>
-      
+
       // <Router>
       //   <Layout className="layout">
       //     <Navbar />

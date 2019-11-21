@@ -1,0 +1,30 @@
+.viewleft-title{
+    text-align: center;
+}
+.news-left{
+    display: flex;
+}
+.pic-news{
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+.content-news{
+    width: 200px;
+    height: 100px;
+    float: left;
+    margin-left: 10px;
+}
+.contain{
+    padding: 0px;
+}
+
+h5{
+    word-break: break-all;
+    height: 25px;
+    overflow: hidden
+}
+p{
+    word-break: break-all;
+    overflow: hidden;
+}
