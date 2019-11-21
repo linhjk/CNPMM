@@ -13,6 +13,7 @@ import { CartProvider } from './components/contexts/Cart';
 import Login from './components/login/Login';
 import BestSeller from './components/container/BestSeller';
 import Navbar from './components/layout/Navbar'
+import News from './components/newsitem/news'
 
 const { Header, Content, Footer } = Layout;
 
@@ -23,9 +24,10 @@ class App extends Component {
         <Layout className="layout">
           <Navbar />
           <Route path="/" exact component={View} />
-          <Route path="/xahoi" exact component={View} />
+          {/* <Route path="/xahoi" exact component={View} />
           <Route path="/thethao" exact component={View} />
-          <Route path="/congnghe" exact component={View} />
+          <Route path="/congnghe" exact component={View} /> */}
+          {/* <Route path="/:new_id" exact component ={News}/> */}
           <div className="container">
             <Route exact path="/login" component={Login} />
           </div>

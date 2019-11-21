@@ -36,9 +36,9 @@ export const getNewsByCategory = (categoryname) => dispatch => {
                 }));
 };
 
-export const getNewByID = id => dispatch => {
+export const getNewByID = new_id => dispatch => {
     axios
-      .get(`http://localhost:5000/${id}`)
+      .get(`http://localhost:5000/${new_id}`)
       .then(res =>
         dispatch({
           type: GET_NEWBYID,
