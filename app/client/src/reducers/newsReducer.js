@@ -1,17 +1,29 @@
-import { GET_NEWS } from '../actions/types';
+import { GET_NEWS, GET_NEWSBYCATEGORY, GET_NEWBYID } from '../actions/types';
+
 
 const initialState = {
-    newsitems: []
+    newsitems: [],
+    itemsbycategory: [],
 };
 
 export default function (state = initialState, action) {
-    console.log("ajksfhkj", action);
     switch (action.type) {
         case GET_NEWS:
-                console.log("bbb");
+            console.log("bbb");
             return {
                 ...state,
                 newsitems: action.payload
+            };
+        case GET_NEWSBYCATEGORY:
+            console.log("zzzzz");
+            return {
+                ...state,
+                itemsbycategory: action.payload
+            };
+        case GET_NEWBYID:
+            return{
+                ...state,
+                newbyid: action.payload
             }
         default:
             return state;

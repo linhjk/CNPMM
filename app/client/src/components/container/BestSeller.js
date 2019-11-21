@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from "lodash";
 
+
 import {
     Container, Row, Col, Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, Button
 } from 'reactstrap';
 import img from '../img/pic1.jpg';
 import './BestSeller.css';

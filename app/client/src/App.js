@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb, Button, Row, Col, Card } from 'antd';
+import { Layout } from 'antd';
 
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -23,6 +23,9 @@ class App extends Component {
         <Layout className="layout">
           <Navbar />
           <Route path="/" exact component={View} />
+          <Route path="/xahoi" exact component={View} />
+          <Route path="/thethao" exact component={View} />
+          <Route path="/congnghe" exact component={View} />
           <div className="container">
             <Route exact path="/login" component={Login} />
           </div>

@@ -48,6 +48,12 @@ module.exports.getNewsFromCategory = function (req, res) {
             }
         })
 }
+module.exports.getNewsByID = function(req,res){
+    News.findById(req.params.new_id, function (err, news) {
+        if (err) res.send(err);
+        res.json(news);
+    });
+}
 
 // const getAllComments = (newId) => {
 //     const newDetail = News
